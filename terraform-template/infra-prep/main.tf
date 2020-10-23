@@ -68,3 +68,11 @@ resource "azurerm_key_vault_secret" "domainjoin-password" {
 
     key_vault_id = azurerm_key_vault.wvd-keyvault.id
 }
+
+# Create host key secret
+resource "azurerm_key_vault_secret" "wvd-host-key" {
+    name = "hostpool-registration-key"
+    value = ""
+
+    key_vault_id = azurerm_key_vault.wvd-keyvault.id
+}
