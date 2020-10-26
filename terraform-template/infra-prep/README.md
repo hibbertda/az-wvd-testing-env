@@ -13,3 +13,7 @@ Azure Keyvault is used to store all of the secrets used during the deployment. I
 The template will create several secrets that need to be updated before moving on to the next step(s).
 
 A default KeyVault access policy is created for the identity used to run the template. 
+
+## Shared Image Gallery
+
+An Azure Shared Image Gallery is used to manage lifecylce and distribution of managed disk images.
