@@ -21,11 +21,7 @@ stages:
         inputs:  
           command: 'init'
           workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/infra-prep'
-          commandOptions: |
-            -var="az_client_id=$(az_client_id)" \
-            -var="az_client_secret=$(az_client_secret)" \
-            -var="az_subscription_id=$(az_subscription_id)" \
-            -var="az_tenant_id=$(az_tenant_id)"
+          commandOptions: '-var="az_client_id=$(az_client_id)" -var="az_client_secret=$(az_client_secret)" -var="az_subscription_id=$(az_subscription_id)" -var="az_tenant_id=$(az_tenant_id)"'
 
 
       - task: TerraformCLI@0
