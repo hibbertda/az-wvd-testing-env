@@ -38,7 +38,7 @@ module "wvd_hostpool_developers" {
     rgLocation  = azurerm_resource_group.wvd-demo.location
     rgName      = azurerm_resource_group.wvd-demo.name
     env         = var.env
-    keyvault_id = data.azurerm_key_vault.wvd-kv.id
+    #keyvault_id = data.azurerm_key_vault.wvd-kv.id
 }
 
 # Create WVD session hosts
@@ -51,4 +51,5 @@ module "wvd_hostpool_developers" {
 #     hostvm              = var.hostvm
 #     adds-join           = var.adds-join
 #     wvd-hostpool-name   = module.wvd_hostpool_developers.wvd-hostpool-name
+#     wvd-hostpool-regkey = module.wvd_hostpool_developers.wvd-hostpool-regkey
 # }
