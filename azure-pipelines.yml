@@ -3,6 +3,7 @@ trigger:
 
 pool:
   vmImage: 'ubuntu-latest'
+
 stages:
 - stage: infra_prep
   displayName: "Intrastructure Prep"
@@ -36,5 +37,7 @@ stages:
         displayName: "Terraform Apply - Infra"
         inputs:
           command: 'apply'
-          commandOptions: '--auto-approve -backend-config="client_id=$(az_client_id)" \-backend-config="client_secret=$(az_client_secret)" -backend-config="subscription_id=$(az_subscription_id)" -backend-config="tenant_id=$(az_tenant_id)"'
+          commandOptions: '-auto-approve -backend-config="client_id=$(az_client_id)" \-backend-config="client_secret=$(az_client_secret)" -backend-config="subscription_id=$(az_subscription_id)" -backend-config="tenant_id=$(az_tenant_id)"'
+
+#- stage: wvd-deploy
 
