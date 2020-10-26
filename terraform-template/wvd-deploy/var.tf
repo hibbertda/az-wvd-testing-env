@@ -29,6 +29,8 @@ variable "hostvm" {
     }
 }
 
+# AD DS domain join vars
+
 variable "adds-join" {
     type = map
     default = {
@@ -36,3 +38,4 @@ variable "adds-join" {
         
     }
 }
+

@@ -30,7 +30,7 @@ resource "azurerm_key_vault" "wvd-keyvault" {
 # Output vm-admin password secret
 resource "azurerm_key_vault_secret" "adminPassword" {
     name = "vm-adminpassword"
-    value = ""
+    value = var.vm-admin-password
 
     key_vault_id = azurerm_key_vault.wvd-keyvault.id
 }
@@ -38,31 +38,22 @@ resource "azurerm_key_vault_secret" "adminPassword" {
 # Output vm-admin username secret
 resource "azurerm_key_vault_secret" "adminusername" {
     name = "vm-adminusername"
-    value = ""
+    value = "wvdadmin"
 
     key_vault_id = azurerm_key_vault.wvd-keyvault.id
 }
 
-# Output domain-join username secret
 resource "azurerm_key_vault_secret" "domainjoin-username" {
     name = "domainjoin-username"
-    value = ""
+    value = var.adds-join-username
 
     key_vault_id = azurerm_key_vault.wvd-keyvault.id
 }
 
-# Output domain-join password secret
+
 resource "azurerm_key_vault_secret" "domainjoin-password" {
     name = "domainjoin-password"
-    value = ""
-
-    key_vault_id = azurerm_key_vault.wvd-keyvault.id
-}
-
-# Create host key secret
-resource "azurerm_key_vault_secret" "wvd-host-key" {
-    name = "hostpool-registration-key"
-    value = ""
+    value = var.vm-admin-password
 
     key_vault_id = azurerm_key_vault.wvd-keyvault.id
 }

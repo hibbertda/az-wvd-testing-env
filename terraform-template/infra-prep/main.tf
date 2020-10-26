@@ -19,6 +19,9 @@ resource "azurerm_resource_group" "wvd-demo" {
 module "wvd_keyvault" {
     source = "./modules/keyvault"
     env = var.env
-    rgName       = azurerm_resource_group.wvd-demo.name
-    rgLocation   = azurerm_resource_group.wvd-demo.location
+    rgName              = azurerm_resource_group.wvd-demo.name
+    rgLocation          = azurerm_resource_group.wvd-demo.location
+    adds-join-username  = var.adds-join-username
+    adds-join-password  = var.adds-join-password
+    vm-admin-password   = var.vm-admin-password
 }

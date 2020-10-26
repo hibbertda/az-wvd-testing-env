@@ -14,17 +14,6 @@ resource "azurerm_virtual_desktop_host_pool" "hostpool"{
     }
 }
 
-# Output the hostpool registration key to WVD keyvault
-# resource "azurerm_key_vault_secret" "wvdhostkey" {
-#     name = "hostpool-registration-key"
-#     value = azurerm_virtual_desktop_host_pool.hostpool.registration_info[0].token
-
-#     key_vault_id = var.keyvault_id
-    
-#     #Set secret expiration date to match registration key lifetime
-#     expiration_date = timeadd(timestamp(), "${var.registrationKeyLifetime}h")
-# }
-
 output "wvd-hostpool-name" {
     value = azurerm_virtual_desktop_host_pool.hostpool.name
 }
