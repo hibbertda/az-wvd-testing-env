@@ -41,7 +41,7 @@ stages:
           environmentServiceName: 'HBL-MS-AIRS(ce934b07-c047-4954-bfbc-b528d97c2c70)'
           #commandOptions: '-auto-approve'
 
-- stage: wvd-deploy
+- stage: wvd_deploy
   displayName: "Deploy WVD"
   jobs:
     - job: wvd_deploy
