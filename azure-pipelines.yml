@@ -1,32 +1,33 @@
-# Starter pipeline
-
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - master
 
 pool:
   vmImage: 'ubuntu-latest'
+stages:
+- stage: infra_prep
+  displayName: "Intrastructure Prep"
+  jobs: 
+    - job: terraform_deploy
+      displayName: "Terraform Deployment"
 
-steps:
-- task: TerraformInstaller@0
-  displayName: "Install Terraform"
-  inputs:
-    terraformVersion: 'latest'
+      steps:
+      - task: TerraformInstaller@0
+        displayName: "Install Terraform"
+        inputs:
+          terraformVersion: 'latest'
 
-- task: TerraformCLI@0
-  displayName: "Terraform Init"
-  inputs:  
-    command: 'init'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/infra-prep'
+      - task: TerraformCLI@0
+        displayName: "Terraform Init"
+        inputs:  
+          command: 'init'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/infra-prep'
 
-- task: TerraformCLI@0
-  inputs:
-    command: 'plan'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/infra-prep'
-    environmentServiceName: 'HBL-MS-AIRS(ce934b07-c047-4954-bfbc-b528d97c2c70)'
-    allowTelemetryCollection: false
+      - task: TerraformCLI@0
+        displayName: "Terraform Plan - infra"
+        inputs:
+          command: 'plan'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/infra-prep'
+          environmentServiceName: 'HBL-MS-AIRS(ce934b07-c047-4954-bfbc-b528d97c2c70)'
+          allowTelemetryCollection: false
 
 
