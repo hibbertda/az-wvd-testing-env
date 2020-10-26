@@ -32,10 +32,7 @@ stages:
           workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/infra-prep'
           environmentServiceName: 'HBL-MS-AIRS(ce934b07-c047-4954-bfbc-b528d97c2c70)'
           allowTelemetryCollection: false
-          commandOptions: |
-            -var="vm-admin-password=$(vmadmin)" \
-            -var="adds-join-password=$(adds_pass)" \
-            -var="adds-join-username=$(adds_username)"          
+          commandOptions: '-var="vm-admin-password=$(vmadmin)" -var="adds-join-password=$(adds_pass)" -var="adds-join-username=$(adds_username)"'
 
       - task: TerraformCLI@0
         displayName: "Terraform Apply - Infra"
@@ -43,10 +40,7 @@ stages:
           command: 'apply'
           workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/infra-prep'
           environmentServiceName: 'HBL-MS-AIRS(ce934b07-c047-4954-bfbc-b528d97c2c70)'
-          commandOptions: |
-            -var="vm-admin-password=$(vmadmin)" \
-            -var="adds-join-password=$(adds_pass)" \
-            -var="adds-join-username=$(adds_username)"          
+          commandOptions: '-var="vm-admin-password=$(vmadmin)" -var="adds-join-password=$(adds_pass)" -var="adds-join-username=$(adds_username)"'         
 
 - stage: wvd_deploy
   displayName: "Deploy WVD"
