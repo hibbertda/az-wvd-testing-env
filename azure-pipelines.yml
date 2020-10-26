@@ -58,7 +58,7 @@ stages:
         displayName: "Terraform Plan - wvd"
         inputs:
           command: 'plan'
-          workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/infra-prep'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/wvd-deploy'
           environmentServiceName: 'HBL-MS-AIRS(ce934b07-c047-4954-bfbc-b528d97c2c70)'
           allowTelemetryCollection: false
 
@@ -66,5 +66,5 @@ stages:
         displayName: "Terraform Apply - wvd"
         inputs:
           command: 'apply'
-          workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/infra-prep'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/wvd-deploy'
           environmentServiceName: 'HBL-MS-AIRS(ce934b07-c047-4954-bfbc-b528d97c2c70)'          
