@@ -20,6 +20,8 @@ stages:
           azureSubscription: 'HBL-MS-AIRS(ce934b07-c047-4954-bfbc-b528d97c2c70)'
           scriptType: 'bash'
           scriptLocation: 'inlineScript'
+          inlineScript: |
+            az account show
 
       - task: TerraformCLI@0
         displayName: "Terraform Init"
