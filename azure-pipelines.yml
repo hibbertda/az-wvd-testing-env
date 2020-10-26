@@ -15,19 +15,13 @@ stages:
         displayName: "Install Terraform"
         inputs:
           terraformVersion: 'latest'
-      - task: AzureCLI@2
-        inputs:
-          azureSubscription: 'HBL-MS-AIRS(ce934b07-c047-4954-bfbc-b528d97c2c70)'
-          scriptType: 'bash'
-          scriptLocation: 'inlineScript'
-          inlineScript: |
-            az account show
 
       - task: TerraformCLI@0
         displayName: "Terraform Init"
         inputs:  
           command: 'init'
           workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/infra-prep'
+
 
       - task: TerraformCLI@0
         displayName: "Terraform Plan - infra"
