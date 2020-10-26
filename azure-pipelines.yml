@@ -41,5 +41,16 @@ stages:
           environmentServiceName: 'HBL-MS-AIRS(ce934b07-c047-4954-bfbc-b528d97c2c70)'
           #commandOptions: '-auto-approve'
 name: 
-#- stage: wvd-deploy
+- stage: wvd-deploy
+  displayName: "Deploy WVD"
+  jobs:
+    - job: wvd_deploy
+      displayName: "WVD Terraform Deployment"
 
+      steps:
+        - task: TerraformCLI@0
+        displayName: "Terraform Init"
+        inputs:  
+          command: 'init'
+          workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/wvd-deploy'
+          commandOptions: '-backend-config="client_id=$(az_client_id)" -backend-config="client_secret=$(az_client_secret)" -backend-config="subscription_id=$(az_subscription_id)" -backend-config="tenant_id=$(az_tenant_id)"'
