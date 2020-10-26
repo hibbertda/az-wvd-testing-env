@@ -17,14 +17,16 @@ steps:
     terraformVersion: 'latest'
 
 - task: TerraformCLI@0
-  inputs:
+  displayName: "Terraform Init"
+  inputs:  
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/infra-prep'
 
-#- task: TerraformCLI@0
-#  inputs:
-#    command: 'plan'
-#    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/infra-prep'
-#    environmentServiceName: 'HBL-MS-AIRS(ce934b07-c047-4954-bfbc-b528d97c2c70)'
-#    allowTelemetryCollection: false
+- task: TerraformCLI@0
+  inputs:
+    command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/infra-prep'
+    environmentServiceName: 'HBL-MS-AIRS(ce934b07-c047-4954-bfbc-b528d97c2c70)'
+    allowTelemetryCollection: false
+
 
