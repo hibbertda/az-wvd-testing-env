@@ -40,7 +40,7 @@ stages:
           workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/infra-prep'
           environmentServiceName: 'HBL-MS-AIRS(ce934b07-c047-4954-bfbc-b528d97c2c70)'
           #commandOptions: '-auto-approve'
-name: 
+
 - stage: wvd-deploy
   displayName: "Deploy WVD"
   jobs:
