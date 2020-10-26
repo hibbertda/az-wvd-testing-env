@@ -48,7 +48,7 @@ name:
       displayName: "WVD Terraform Deployment"
 
       steps:
-        - task: TerraformCLI@0
+      - task: TerraformCLI@0
         displayName: "Terraform Init"
         inputs:  
           command: 'init'
