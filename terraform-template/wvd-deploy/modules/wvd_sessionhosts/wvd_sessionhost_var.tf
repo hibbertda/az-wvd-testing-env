@@ -1,11 +1,3 @@
-# # Resource group region
-# variable "rgLocation" {
-#     type = string
-# }
-# # Resource group name
-# variable "rgName" {
-#     type = string
-# }
 # Env variables
 variable "env" {
     type = map
@@ -30,6 +22,10 @@ variable "hostvm" {
 }
 
 variable "wvd-hostpool-name" {
+    type = string
+}
+
+variable "wvd-hostpool-regkey" {
     type = string
 }
 

@@ -8,7 +8,7 @@ backend "azurerm" {
     storage_account_name    = "hblwvdterrstate"
     container_name          = "wvdstate"
     key                     = "wvdstate.tfstate"
-}
+    }
 }
 
 data "azurerm_client_config" "current" {}
@@ -38,7 +38,6 @@ module "wvd_hostpool_developers" {
     rgLocation  = azurerm_resource_group.wvd-demo.location
     rgName      = azurerm_resource_group.wvd-demo.name
     env         = var.env
-    #keyvault_id = data.azurerm_key_vault.wvd-kv.id
 }
 
 # Create WVD session hosts
