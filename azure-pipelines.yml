@@ -54,7 +54,7 @@ stages:
         inputs:  
           command: 'init'
           workingDirectory: '$(System.DefaultWorkingDirectory)/terraform-template/wvd-deploy'
-          commandOptions: '-backend-config="client_id=$(az_client_id)" -backend-config="client_secret=$(az_client_secret)" -backend-config="subscription_id=$(az_subscription_id)" -backend-config="tenant_id=$(az_tenant_id)"'
+          commandOptions: '-upgrade -backend-config="client_id=$(az_client_id)" -backend-config="client_secret=$(az_client_secret)" -backend-config="subscription_id=$(az_subscription_id)" -backend-config="tenant_id=$(az_tenant_id)"'
 
       - task: TerraformCLI@0
         displayName: "Terraform Plan - wvd"
