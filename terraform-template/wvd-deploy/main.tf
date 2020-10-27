@@ -42,14 +42,14 @@ module "wvd_hostpool_developers" {
 }
 
 # Create WVD session hosts
-# module "wvd_session_hosts" {
-#     env                 = var.env    
-#     source              = "./modules/wvd_sessionhosts"
-#     keyvault_id         = data.azurerm_key_vault.wvd-kv.id
-#     sessionHostCount    = 2
-#     network             = var.network
-#     hostvm              = var.hostvm
-#     adds-join           = var.adds-join
-#     wvd-hostpool-name   = module.wvd_hostpool_developers.wvd-hostpool-name
-#     wvd-hostpool-regkey = module.wvd_hostpool_developers.wvd-hostpool-regkey
-# }
+module "wvd_session_hosts" {
+    env                 = var.env    
+    source              = "./modules/wvd_sessionhosts"
+    keyvault_id         = data.azurerm_key_vault.wvd-kv.id
+    sessionHostCount    = 2
+    network             = var.network
+    hostvm              = var.hostvm
+    adds-join           = var.adds-join
+    wvd-hostpool-name   = module.wvd_hostpool_developers.wvd-hostpool-name
+    wvd-hostpool-regkey = module.wvd_hostpool_developers.wvd-hostpool-regkey
+}
