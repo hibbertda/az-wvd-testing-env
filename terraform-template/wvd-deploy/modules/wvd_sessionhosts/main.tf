@@ -24,11 +24,6 @@ data "azurerm_key_vault_secret" "domain-join-password" {
     key_vault_id    = var.keyvault_id
 }
 
-data "azurerm_key_vault_secret" "wvd-registration-key" {
-    name            = "hostpool-registration-key"
-    key_vault_id    = var.keyvault_id
-}
-
 resource "azurerm_resource_group" "wvd-hosts" {
     name        = "hbl-${var.env["envName"]}-${var.env["region"]}-sessionhosts"
     location    =  var.env["region"]
