@@ -8,34 +8,29 @@ variable "env" {
     }
 }
 
-variable "network" {
-    type = map
-    default = {
-        vnetName    = "vnet-hbl-airs-demo-core-centralus"
-        vnetRg      = "hbl-demo-network"
-        subnetName  = "sn-hbl-airs-demo-core-centralus-wvd"
-    }
-}
-
+# Configuration variables for session host VMs
 variable "hostvm" {
     type    = map
     default = {
-        vmSize          = "Standard_D2s_v3"
-        publisher       = "MicrosoftWindowsDesktop"
-        offer           = "Windows-10"
-        sku             = "19h2-evd"
+        # Azure VM Sku Size
+        vmSize          = "Standard_D2s_v3"    
+        # Image publisher         
+        publisher       = "MicrosoftWindowsDesktop"    
+        # Image offer 
+        offer           = "Windows-10"          
+        # Image offer sku        
+        sku             = "19h2-evd"                    
+        # VM OS disk size (GB)
         osDiskSizeGB    = 128
+        # VM Local Administrator 
         adminUserName   = "wvdtestadmin"
+        # AD DS domain name
+        addsDomain      = "lab.thehibbs.net"
+        # VNet Name
+        vnetName        = "vnet-hbl-airs-demo-core-centralus"
+        # VNet Resource Group name
+        vnetRg          = "hbl-demo-network"
+        # VNet Subnet name
+        subnetName      = "sn-hbl-airs-demo-core-centralus-wvd"
     }
 }
-
-# AD DS domain join vars
-
-variable "adds-join" {
-    type = map
-    default = {
-        domainName = "lab.thehibbs.net"
-        
-    }
-}
-

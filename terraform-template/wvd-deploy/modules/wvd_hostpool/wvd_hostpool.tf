@@ -2,7 +2,7 @@ resource "azurerm_virtual_desktop_host_pool" "hostpool"{
     location            = var.rgLocation
     resource_group_name = var.rgName
 
-    name = "wvdhp-${var.env["envName"]}"
+    name = "wvdhp-${var.env["envName"]}-${var.env["region"]}"
     friendly_name = "wvdhp-${var.env["envName"]}"
     description = "Development workstations"
     type = "Pooled"
@@ -14,10 +14,6 @@ resource "azurerm_virtual_desktop_host_pool" "hostpool"{
     }
 }
 
-output "wvd-hostpool-name" {
-    value = azurerm_virtual_desktop_host_pool.hostpool.name
-}
-
-output "wvd-hostpool-regkey" {
-    value = azurerm_virtual_desktop_host_pool.hostpool.registration_info[0].token
-}
+# output "wvd-hostpool-name" {
+#     value = azurerm_virtual_desktop_host_pool.hostpool.name
+# }

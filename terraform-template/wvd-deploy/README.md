@@ -1,13 +1,13 @@
 # Azure Windows Virtual Desktop - Demo / POC Environment
 ## Requirements
 
-## Terraform state storage
+### Terraform state storage
 
 Terraform state is stored in an Azure Storage account. The identity running the template requires access to the storage account. 
 
 [Backend Configuration](#Backend-Configuration) has details on the expected backend storage configuration.
 
-## Azure KeyVault
+### Azure KeyVault
 
 The template assumes an Azure KeyVault will exist to store secrets required for deploying certain resource types. 
 
